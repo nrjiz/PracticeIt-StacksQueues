@@ -1,0 +1,23 @@
+public static void splitStack (Stack<Integer>s){
+    
+    Queue<Integer> q = new LinkedList<Integer>();
+    int neg = 0;
+    
+    while(!s.isEmpty()){
+        if(s.peek()<0){
+            neg++;
+        }
+        q.add(s.pop());
+    }    
+    while(neg>0){
+        if(q.peek()<0){
+            s.push(q.remove());
+            neg--;
+        }else{
+            q.add(q.remove());
+        }
+    }
+    while(!q.isEmpty()){
+        s.push(q.remove());
+    }
+}
