@@ -1,0 +1,21 @@
+
+public static boolean equals (Stack<Integer>a,Stack<Integer>b){
+    
+    if(a.size()!=b.size()){
+        return false;
+    }    
+    boolean truthValue = true;
+    Stack<Integer>auxiliary =new Stack<Integer>();
+    while(!a.isEmpty()){
+        if(a.peek()!=b.peek()){
+            truthValue= false;
+        }
+        auxiliary.push(a.pop());
+        auxiliary.push(b.pop());           
+    }    
+    while(!auxiliary.isEmpty()){
+        b.push(auxiliary.pop());
+        a.push(auxiliary.pop());
+    }
+    return truthValue;
+}
