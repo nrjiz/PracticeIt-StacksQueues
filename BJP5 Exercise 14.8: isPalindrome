@@ -1,0 +1,16 @@
+public static boolean isPalindrome(Queue<Integer>q){
+    
+    int size =q.size();
+    Stack<Integer>s=new Stack<Integer>();
+    boolean answer =true;
+    
+    for (int i = 0 ; i<size;i++){
+        s.push(q.peek());
+        q.add(q.remove());
+    }
+    while(!s.isEmpty()){
+        if(s.pop()!=q.peek())answer=false;
+        q.add(q.remove());
+    }
+    return answer;
+}
