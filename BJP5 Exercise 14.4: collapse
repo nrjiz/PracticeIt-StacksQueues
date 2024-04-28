@@ -1,0 +1,13 @@
+public static void collapse (Stack<Integer>s){
+    Queue<Integer>q=new LinkedList<Integer>();
+    
+    while(!s.isEmpty())q.add(s.pop());
+    while(!q.isEmpty())s.push(q.remove());
+    int size = s.size()/2;
+    while(size>0){
+        q.add(s.pop()+s.pop());
+        size--;
+    }
+    if(!s.isEmpty())q.add(s.pop());
+    while(!q.isEmpty())s.push(q.remove());
+}
